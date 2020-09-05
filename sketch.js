@@ -7,6 +7,14 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var gamestate = "on sling";
 
+var ground;
+var pentagon;
+var slingshot;
+var box1, box2, box3, box4, box5, box6, box7, box8, box9;
+var boxs1, boxs2, boxs3, boxs4, boxs5, boxs6, boxs7, boxs8, boxs9;
+var platform, platform2;
+var score = 0;
+
 function preload(){
   backgroundimage = loadImage("sprites/back.png")
 }
@@ -16,7 +24,7 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 
-    gorund = new Ground(700, 680, 14000, 40)
+    ground = new Ground(700, 680, 14000, 40)
 
     pentagon = new player(200, 350, 50, 50)
 
@@ -59,12 +67,7 @@ function draw(){
     background(backgroundimage);
     Engine.update(engine);
 
-
-    if (gamestate == "on sling"){
-      
-    }
-
-    gorund.display();
+    ground.display();
     pentagon.display();
     box1.display();
 
@@ -95,6 +98,9 @@ function draw(){
     stroke("orange")
     text("DRAG THE PENTAGON TO SLING AND PRESS SPACE TO ATTACH IT BACK TO THE SLINGSHOT !!", 0, 80)
     text("PRESSSS 'R' TO PLAY AGAIN", 500, 120)
+
+    fill("blue")
+    text("PENTAGONS USED <" + score + ">" , 30, 190)
     
   }
 
@@ -106,6 +112,9 @@ function mouseDragged(){
 
 function mouseReleased(){
     slingshot.fly();
+    if (gamestate == "on sling"){
+      score += 1;
+    }
     gamestate = "launched";
 }
 
