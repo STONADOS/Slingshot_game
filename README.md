@@ -1,2 +1,2 @@
-# p5.play-boilerplate
-Boiler plate for p5.play
+# SlingShot Game
+This is a cool and fun game to play and enjoy
