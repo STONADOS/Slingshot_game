@@ -190,7 +190,7 @@ function keyPressed(){
 
     Body.setPosition(pentagon.body, {x:200, y:350});
     slingshot.attach(pentagon.body);
-    gamestate = "on sling";
+    gamestate = "on sling"; 
 
   }
 }
